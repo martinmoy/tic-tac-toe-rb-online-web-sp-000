@@ -97,12 +97,13 @@ def turn(board)
   else
     return turn(board)
   end
+  display_board(board)
 end
 
 def play(board)
      until over?(board)
         turn(board)
-        display_board(board)
+      
      end
      if draw?(board)
         puts "Cat's Game!"
