@@ -92,9 +92,8 @@ def turn(board)
   puts "Please enter 1-9:"
   input=gets.strip
   index=input_to_index(input)
-  value = current_player(board)
   if valid_move?(board, index)
-    move(board, index, value )
+    move(board, index, current_player(board) )
   else
     return turn(board)
   end
@@ -104,10 +103,12 @@ def play(board)
      until over?(board)
         turn(board)
      end
-     if won?(board)
+     if draw?(board)
+        puts "Cat's Game!"
+     elsif
+        won?(board)
         winner(board) == "X" || winner(board) == "O"
         puts "Congratulations #{winner(board)}!"
-     elsif draw?(board)
-        puts "Cat's Game!"
+
      end
   end
