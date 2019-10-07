@@ -95,13 +95,14 @@ def turn(board)
   if valid_move?(board, index)
     move(board, index, current_player(board) )
   else
-    return display_board(board)
+    return turn(board)
   end
 end
 
 def play(board)
      until over?(board)
         turn(board)
+        display_board(board)
      end
      if draw?(board)
         puts "Cat's Game!"
